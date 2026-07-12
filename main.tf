@@ -5,7 +5,7 @@ locals {
     for k1, v1 in var.managed_redises : {
       for k2, v2 in coalesce(v1.managed_redis_access_policy_assignments, {}) :
       "${k1}/${k2}" => merge(v2, {
-        managed_redis_id = module.managed_redises.managed_redises["${k1}"].id
+        managed_redis_id = module.managed_redises.managed_redises_id["${k1}"]
       })
     }
   ]...)
@@ -14,7 +14,7 @@ locals {
     for k1, v1 in var.managed_redises : {
       for k2, v2 in coalesce(v1.managed_redis_geo_replications, {}) :
       "${k1}/${k2}" => merge(v2, {
-        managed_redis_id = module.managed_redises.managed_redises["${k1}"].id
+        managed_redis_id = module.managed_redises.managed_redises_id["${k1}"]
       })
     }
   ]...)
