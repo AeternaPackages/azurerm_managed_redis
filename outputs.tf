@@ -1,4 +1,9 @@
 # --- azurerm_managed_redis ---
+output "managed_redises_id" {
+  description = "Map of id values across all managed_redises, keyed the same as var.managed_redises"
+  value       = module.managed_redises.managed_redises_id
+}
+
 output "managed_redises_customer_managed_key" {
   description = "Map of customer_managed_key values across all managed_redises, keyed the same as var.managed_redises"
   value       = module.managed_redises.managed_redises_customer_managed_key
@@ -56,6 +61,11 @@ output "managed_redises_tags" {
 }
 
 # --- azurerm_managed_redis_access_policy_assignment ---
+output "managed_redis_access_policy_assignments_id" {
+  description = "Map of id values across all managed_redis_access_policy_assignments, keyed the same as var.managed_redis_access_policy_assignments"
+  value       = module.managed_redis_access_policy_assignments.managed_redis_access_policy_assignments_id
+}
+
 output "managed_redis_access_policy_assignments_managed_redis_id" {
   description = "Map of managed_redis_id values across all managed_redis_access_policy_assignments, keyed the same as var.managed_redis_access_policy_assignments"
   value       = module.managed_redis_access_policy_assignments.managed_redis_access_policy_assignments_managed_redis_id
@@ -67,6 +77,11 @@ output "managed_redis_access_policy_assignments_object_id" {
 }
 
 # --- azurerm_managed_redis_geo_replication ---
+output "managed_redis_geo_replications_id" {
+  description = "Map of id values across all managed_redis_geo_replications, keyed the same as var.managed_redis_geo_replications"
+  value       = module.managed_redis_geo_replications.managed_redis_geo_replications_id
+}
+
 output "managed_redis_geo_replications_linked_managed_redis_ids" {
   description = "Map of linked_managed_redis_ids values across all managed_redis_geo_replications, keyed the same as var.managed_redis_geo_replications"
   value       = module.managed_redis_geo_replications.managed_redis_geo_replications_linked_managed_redis_ids
