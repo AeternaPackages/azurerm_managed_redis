@@ -26,18 +26,18 @@ EOT
     name                      = string
     resource_group_name       = string
     sku_name                  = string
-    high_availability_enabled = optional(bool)   # Default: true
-    public_network_access     = optional(string) # Default: "Enabled"
+    high_availability_enabled = optional(bool)
+    public_network_access     = optional(string)
     tags                      = optional(map(string))
     customer_managed_key = optional(object({
       key_vault_key_id          = string
       user_assigned_identity_id = string
     }))
     default_database = optional(object({
-      access_keys_authentication_enabled = optional(bool)   # Default: false
-      client_protocol                    = optional(string) # Default: "Encrypted"
-      clustering_policy                  = optional(string) # Default: "OSSCluster"
-      eviction_policy                    = optional(string) # Default: "VolatileLRU"
+      access_keys_authentication_enabled = optional(bool)
+      client_protocol                    = optional(string)
+      clustering_policy                  = optional(string)
+      eviction_policy                    = optional(string)
       geo_replication_group_name         = optional(string)
       module = optional(list(object({
         args = optional(string)
