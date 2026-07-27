@@ -1,6 +1,6 @@
-variable "managed_redises" {
+variable "managed_redis" {
   description = <<EOT
-Map of managed_redises, attributes below
+Map of managed_redis, attributes below
 Required:
     - location
     - name
@@ -60,9 +60,9 @@ EOT
 
   validation {
     condition = alltrue(concat(
-      [for kk in keys(var.managed_redises) : !strcontains(kk, "/")],
-      flatten([for k0, v0 in var.managed_redises : [for kk in keys(coalesce(v0.managed_redis_access_policy_assignments, {})) : !strcontains(kk, "/")]]),
-      flatten([for k0, v0 in var.managed_redises : [for kk in keys(coalesce(v0.managed_redis_geo_replications, {})) : !strcontains(kk, "/")]])
+      [for kk in keys(var.managed_redis) : !strcontains(kk, "/")],
+      flatten([for k0, v0 in var.managed_redis : [for kk in keys(coalesce(v0.managed_redis_access_policy_assignments, {})) : !strcontains(kk, "/")]]),
+      flatten([for k0, v0 in var.managed_redis : [for kk in keys(coalesce(v0.managed_redis_geo_replications, {})) : !strcontains(kk, "/")]])
     ))
     error_message = "Map keys in this package must not contain '/': it is used internally as a nesting-key separator, so a key containing it can silently collide two different nested entries into one. Rename the offending key(s)."
   }
