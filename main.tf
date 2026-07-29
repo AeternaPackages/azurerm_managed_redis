@@ -21,18 +21,18 @@ locals {
 }
 
 module "managed_redis" {
-  source        = "git::https://github.com/AeternaModules/azurerm_managed_redis.git?ref=v4.81.0"
+  source        = "git::https://github.com/AeternaModules/azurerm_managed_redis.git?ref=v5.0.0"
   managed_redis = local.managed_redis
 }
 
 module "managed_redis_access_policy_assignments" {
-  source                                  = "git::https://github.com/AeternaModules/azurerm_managed_redis_access_policy_assignment.git?ref=v4.81.0"
+  source                                  = "git::https://github.com/AeternaModules/azurerm_managed_redis_access_policy_assignment.git?ref=v5.0.0"
   managed_redis_access_policy_assignments = local.managed_redis_access_policy_assignments
   depends_on                              = [module.managed_redis]
 }
 
 module "managed_redis_geo_replications" {
-  source                         = "git::https://github.com/AeternaModules/azurerm_managed_redis_geo_replication.git?ref=v4.81.0"
+  source                         = "git::https://github.com/AeternaModules/azurerm_managed_redis_geo_replication.git?ref=v5.0.0"
   managed_redis_geo_replications = local.managed_redis_geo_replications
   depends_on                     = [module.managed_redis]
 }
